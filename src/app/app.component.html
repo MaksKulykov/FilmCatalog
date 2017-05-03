@@ -1,5 +1,10 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar>
+  <div class="toolbar-button-row">
+    <a md-button
+       *ngFor="let topLink of links">
+    {{topLink.label}}
+    </a>
+  </div>
+</md-toolbar>
 
 <app-film-card></app-film-card>

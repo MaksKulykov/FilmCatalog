@@ -4,8 +4,13 @@
 }
 .film-card {
   max-width: 300px;
-  margin-bottom: 50px;
+  height: 700px;
+  margin-bottom: 150px;
 }
 .example-form {
-  margin-bottom: 50px;
+  margin: 20px 0 50px 20px;
+}
+img {
+  max-width: 350px;
+  height: 550px;
 }

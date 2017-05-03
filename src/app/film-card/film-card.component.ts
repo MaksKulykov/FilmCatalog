@@ -23,5 +23,6 @@ export class FilmCardComponent implements OnInit {
     this.filmCardService.getFilms(this.filmName).subscribe(data => {
     this.filmList = data;
     })
+    console.log(this.filmList);
   }
 }
