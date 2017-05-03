@@ -7,3 +7,6 @@ md-toolbar {
   align-items: center;
   justify-content: space-around;
 }
+app-film-card {
+  background-color: silver;
+}
