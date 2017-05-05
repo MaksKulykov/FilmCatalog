@@ -15,14 +15,13 @@ export class FilmCardComponent implements OnInit {
 
     this.filmName = "Matrix";
     this.getFilms();
-
   }
 
   private getFilms() {
     if(!this.filmName) {return;}
     this.filmCardService.getFilms(this.filmName).subscribe(data => {
     this.filmList = data;
-    })
+    });
     console.log(this.filmList);
   }
 }
