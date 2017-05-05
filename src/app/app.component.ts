@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  links = [
-    {label: 'Карточки'},
-    {label: 'Список'},
-  ];
+  title = 'FILM CATALOG';
 }
