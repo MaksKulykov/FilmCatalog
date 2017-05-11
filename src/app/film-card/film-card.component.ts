@@ -9,17 +9,24 @@ import { FilmCardService } from './film-card.service';
 export class FilmCardComponent implements OnInit {
   filmList: Object[] = [];
   filmName: string;
+  pageNumber: string;
+  error:any;
   constructor(private filmCardService: FilmCardService) { }
 
   ngOnInit() {
     this.filmName = "Matrix";
+    this.pageNumber = "1";
     this.getFilms();
   }
 
-  private getFilms(): Object[] {
-    if(!this.filmName) {return;}
-    this.filmCardService.getFilms(this.filmName).subscribe(data => {
-    this.filmList = data;
-    });
+  private getFilms(): void {
+    if(this.filmName) {
+      this.filmCardService.getFilms(this.filmName, this.pageNumber).subscribe((films: Object[]) => {
+        if(films && films.length) {
+          this.filmList = films,
+          error => {this.error = error; console.log(error);}
+        }
+      });
+    }
   }
 }
