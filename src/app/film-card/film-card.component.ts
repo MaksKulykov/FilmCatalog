@@ -10,7 +10,6 @@ export class FilmCardComponent implements OnInit {
   filmList: Object[] = [];
   filmName: string;
   pageNumber: string;
-  error:any;
   constructor(private filmCardService: FilmCardService) { }
 
   ngOnInit() {
@@ -21,12 +20,18 @@ export class FilmCardComponent implements OnInit {
 
   private getFilms(): void {
     if(this.filmName) {
-      this.filmCardService.getFilms(this.filmName, this.pageNumber).subscribe((films: Object[]) => {
-        if(films && films.length) {
-          this.filmList = films,
-          error => {this.error = error; console.log(error);}
-        }
-      });
+      this.filmCardService.getFilms(this.filmName, this.pageNumber)
+        .subscribe(
+          (films: Object[]) => {
+            if (films && films.length) {
+              this.filmList = films;
+            }
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
     }
   }
 }
+
