@@ -7,13 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { FilmCardComponent } from './film-card/film-card.component';
-import { FilmCardService } from './film-card/film-card.service';
+import { FilmListComponent } from './film-list/film-list.component';
+import { FilmListService } from './film-list/film-list.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilmCardComponent
+    FilmListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +22,7 @@ import { FilmCardService } from './film-card/film-card.service';
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [FilmCardService],
+  providers: [FilmListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
