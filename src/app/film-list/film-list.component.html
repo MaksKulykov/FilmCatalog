@@ -1,22 +1,7 @@
-<form class="example-form">
-  <md-input-container class="example-full-width">
-    <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getFilms(); filmName=''">
-  </md-input-container>
-</form>
+<md-grid-list cols="2" rowHeight="800px">
 
-<md-grid-list cols="2" rowHeight="550px">
   <md-grid-tile *ngFor="let film of filmList">
-    <md-card class="film-card">
-      <img md-card-image src="{{film.Poster}}">
-      <md-card-content>
-        <md-card-title>{{film.Title}}</md-card-title>
-        <p>Год: {{film.Year}}</p>
-        <p>Luke Skywalker joins forces with a Jedi Knight...</p>
-      </md-card-content>
-      <md-card-actions>
-        <button md-button>Подробнее</button>
-      </md-card-actions>
-    </md-card>
+    <film-card [filmId]="film.imdbID"></film-card>
   </md-grid-tile>
-</md-grid-list>
 
+</md-grid-list>

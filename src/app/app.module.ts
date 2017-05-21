@@ -8,12 +8,14 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { FilmListComponent } from './film-list/film-list.component';
-import { FilmListService } from './film-list/film-list.service';
+import { FilmCardComponent } from './film-card/film-card.component';
+import { FilmService } from './film.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilmListComponent
+    FilmListComponent,
+    FilmCardComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ import { FilmListService } from './film-list/film-list.service';
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [FilmListService],
+  providers: [FilmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,24 +5,35 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class FilmListService {
+export class FilmService {
   private url: string = "http://www.omdbapi.com/";
-  private id: string = 'tt3896198';
   private apiKey: string = '520bbe17';
   constructor(private http: Http) { }
 
-  private extractData(res: Response): Array<any> {
+  private extractListData(res: Response): Array<any> {
     let body = res.json();
     return body.Search || {};
   }
 
+  private extractItemData(res: Response): Array<any> {
+    let body = res.json();
+    return body || {};
+  }
+
   getFilms(filmName: string, pageNumber: string): Observable<any> {
     let params: URLSearchParams = new URLSearchParams();
-    params.set('i', this.id);
     params.set('apikey', this.apiKey);
     params.set('page', pageNumber || '1');
     params.set('s', filmName);
-    return this.http.get(this.url, {search: params}).map(this.extractData)
+    return this.http.get(this.url, {search: params}).map(this.extractListData)
+      .catch((error: any)=> { return Observable.throw(error);});
+  }
+
+  getFilmById (filmId: string): Observable<any> {
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('i', filmId);
+    params.set('apikey', this.apiKey);
+    return this.http.get(this.url, {search: params}).map(this.extractItemData)
       .catch((error: any)=> { return Observable.throw(error);});
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilmListService } from './film-list.service';
+import { FilmService } from '../film.service';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +11,7 @@ export class FilmListComponent implements OnInit {
   filmList: Object[] = [];
   filmName: string;
   pageNumber: string;
-  constructor(private filmListService: FilmListService) { }
+  constructor(private filmListService: FilmService) { }
 
   ngOnInit() {
     this.filmName = "Matrix";
