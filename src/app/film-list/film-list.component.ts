@@ -14,7 +14,7 @@ export class FilmListComponent implements OnInit {
   constructor(private filmListService: FilmService) { }
 
   ngOnInit() {
-    this.filmName = "Matrix";
+    this.filmName = "lord";
     this.pageNumber = "1";
     this.getFilms();
   }
