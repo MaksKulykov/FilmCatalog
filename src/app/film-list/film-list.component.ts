@@ -16,12 +16,12 @@ export class FilmListComponent implements OnInit {
   ngOnInit() {
     this.filmName = "lord";
     this.pageNumber = "1";
-    this.getFilms();
+    this.getFilms(this.filmName);
   }
 
-  private getFilms(): void {
-    if(this.filmName) {
-      this.filmListService.getFilms(this.filmName, this.pageNumber)
+  private getFilms(filmName: string): void {
+    if(filmName) {
+      this.filmListService.getFilms(filmName, this.pageNumber)
         .subscribe(
           (films: Object[]) => {
             if (films && films.length) {
