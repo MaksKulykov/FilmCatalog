@@ -1,7 +1,7 @@
 .film-card-view1 {
   max-width: 300px;
   height: 900px;
-  margin-bottom: 280px;
+  margin-bottom: 50px;
   position: relative;
 }
 img.img-view1 {
@@ -14,7 +14,7 @@ button.button-view1 {
   left:10px;
 }
 .film-card-view2 {
-  max-width: 400px;
+  width: 600px;
   height: 400px;
   margin-bottom: 50px;
   display:flex;
@@ -26,11 +26,11 @@ button.button-view1 {
 img.img-view2 {
   width: 250px;
   height: 350px;
-  margin-top: 25px;
+  margin: 25px 30px;
 }
-.film-content-view2 {
+/*.film-content-view2 {
   margin-left: 5px;
-}
+}*/
 button.button-view2 {
   position: absolute;
   bottom:10px;

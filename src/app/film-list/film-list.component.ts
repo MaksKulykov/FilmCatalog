@@ -30,7 +30,7 @@ export class FilmListComponent implements OnInit {
         .subscribe(
           (films: Object[]) => {
             if (films && films.length) {
-              this.filmList = films;
+              this.filmList = this.filmList.concat(films);
             }
           },
           (error: any) => {
@@ -40,14 +40,30 @@ export class FilmListComponent implements OnInit {
     }
   }
 
+  validateFilmName(filmName: string): void {
+    if (this.filmName === filmName) {
+      this.getFilms(this.filmName);
+    } else {
+      this.filmName = filmName;
+      this.pageNumber = "1";
+      this.filmList = [];
+      this.getFilms(this.filmName)
+    }
+  }
+
+  addMoreFilms(): void {
+    this.pageNumber = String(parseInt(this.pageNumber) + 1);
+    console.log(this.pageNumber);
+    this.getFilms(this.filmName);
+  }
+
   selectView(view: number): void {
-    console.log(view);
     this.viewRequired = view;
     this.setRowHeight(view);
   }
 
   setRowHeight(view: number): void {
-    view === 1 ? this.rowHeightRequired = "800px" : this.rowHeightRequired = "450px";
+    view === 1 ? this.rowHeightRequired = "1000px" : this.rowHeightRequired = "450px";
   }
 }
 

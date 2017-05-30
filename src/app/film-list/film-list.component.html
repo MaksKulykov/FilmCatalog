@@ -1,8 +1,10 @@
-<app-search (getFilms)="getFilms($event)"></app-search>
+<app-search (getFilms)="validateFilmName($event)" (selectView)="selectView($event)"></app-search>
 <md-grid-list cols="2" [rowHeight]="rowHeightRequired">
-
   <md-grid-tile *ngFor="let film of filmList">
     <film-card [filmId]="film.imdbID" [view]="viewRequired"></film-card>
   </md-grid-tile>
-
 </md-grid-list>
+<button class="add" md-button (click)="addMoreFilms()">Больше фильмов</button>
+<div class="error" *ngIf="filmList === []">
+  <h1>Нет фильмов для представления.</h1>
+</div>

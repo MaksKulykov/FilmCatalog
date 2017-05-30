@@ -21,8 +21,8 @@ export class SearchComponent {
   @Output()
   selectView = new EventEmitter<number>();
 
-  selectNewView(): void {
-    this.selectView.emit(this.view);
+  selectNewView(view: number): void {
+    this.selectView.emit(view);
   }
 
 }
