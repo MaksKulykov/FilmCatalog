@@ -3,8 +3,8 @@
     <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getNewFilms(filmName); filmName=''">
   </md-input-container>
   <md-select class="mat-select" placeholder="Вид" [(ngModel)]="view" name="view" (change)="selectNewView(view)">
-    <md-option [value]="1">Вид 1</md-option>
-    <md-option [value]="2">Вид 2</md-option>
+    <md-option [value]="1">Вертикально</md-option>
+    <md-option [value]="2">Горизонтально</md-option>
   </md-select>
 </form>
 

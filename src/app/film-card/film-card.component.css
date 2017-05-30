@@ -19,7 +19,7 @@ button.button-view1 {
   margin-bottom: 50px;
   display:flex;
   justify-content: space-around;
-  font-size: 12px;
+  font-size: 14px;
   background-color: white;
   position: relative;
 }

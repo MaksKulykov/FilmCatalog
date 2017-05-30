@@ -53,7 +53,6 @@ export class FilmListComponent implements OnInit {
 
   addMoreFilms(): void {
     this.pageNumber = String(parseInt(this.pageNumber) + 1);
-    console.log(this.pageNumber);
     this.getFilms(this.filmName);
   }
 
