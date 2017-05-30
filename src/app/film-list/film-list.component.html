@@ -1,8 +1,8 @@
 <app-search (getFilms)="getFilms($event)"></app-search>
-<md-grid-list cols="2" rowHeight="800px">
+<md-grid-list cols="2" [rowHeight]="rowHeightRequired">
 
   <md-grid-tile *ngFor="let film of filmList">
-    <film-card [filmId]="film.imdbID"></film-card>
+    <film-card [filmId]="film.imdbID" [view]="viewRequired"></film-card>
   </md-grid-tile>
 
 </md-grid-list>
