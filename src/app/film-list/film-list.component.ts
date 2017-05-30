@@ -19,7 +19,7 @@ export class FilmListComponent implements OnInit {
     this.filmName = "lord";
     this.pageNumber = "1";
     this.viewRequired = 1;
-    this.rowHeightRequired = "800px";
+    this.rowHeightRequired = "1000px";
     this.selectView(this.viewRequired);
     this.getFilms(this.filmName);
   }
@@ -40,14 +40,18 @@ export class FilmListComponent implements OnInit {
     }
   }
 
+  getNewFilms(filmName: string): void {
+    this.filmName = filmName;
+    this.pageNumber = "1";
+    this.filmList = [];
+    this.getFilms(this.filmName)
+  }
+
   validateFilmName(filmName: string): void {
     if (this.filmName === filmName) {
       this.getFilms(this.filmName);
     } else {
-      this.filmName = filmName;
-      this.pageNumber = "1";
-      this.filmList = [];
-      this.getFilms(this.filmName)
+      this.getNewFilms(filmName);
     }
   }
 
