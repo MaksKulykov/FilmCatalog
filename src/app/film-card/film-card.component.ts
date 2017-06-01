@@ -9,16 +9,16 @@ import {FilmService} from '../film.service'
 export class FilmCardComponent implements OnInit {
   @Input()
   filmId: string;
-  filmItem: Object[] = [];
+  filmDetails: any[] = [];
   constructor(private filmCardService: FilmService) { }
 
   ngOnInit() {
     if(this.filmId) {
       this.filmCardService.getFilmById(this.filmId)
         .subscribe(
-          (filmDetails: Object[]) => {
+          (filmDetails: any[]) => {
             if(filmDetails){
-              this.filmItem = filmDetails;
+              this.filmDetails = filmDetails;
             }
           },
           (error: any) => {
