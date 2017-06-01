@@ -11,7 +11,7 @@ export class FilmCardComponent implements OnInit {
   filmId: string;
   @Input()
   view: number;
-  filmItem: Object[] = [];
+  filmDetails: any[] = [];
   constructor(private filmCardService: FilmService) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class FilmCardComponent implements OnInit {
         .subscribe(
           (filmDetails: Object[]) => {
             if(filmDetails){
-              this.filmItem = filmDetails;
+              this.filmDetails = filmDetails;
             }
           },
           (error: any) => {

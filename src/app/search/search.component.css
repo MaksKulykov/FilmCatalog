@@ -1,7 +1,5 @@
 .example-form {
-  margin: 20px 0 50px 20px;
-  text-align:center;
+  display: inline-block;
+  margin: 0 0 40px 240px;
 }
-.mat-select {
-  margin-left: 400px;
-}
+

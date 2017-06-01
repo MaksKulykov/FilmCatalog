@@ -1,0 +1,6 @@
+<form>
+  <md-select class="mat-select" placeholder="Вид" [(ngModel)]="viewCards" name="view" (change)="selectNewView()">
+    <md-option [value]="1">Вертикально</md-option>
+    <md-option [value]="2">Горизонтально</md-option>
+  </md-select>
+</form>

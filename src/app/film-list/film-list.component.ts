@@ -8,7 +8,7 @@ import { FilmService } from '../film.service';
   styleUrls: ['film-list.component.css']
 })
 export class FilmListComponent implements OnInit {
-  filmList: Object[] = [];
+  filmList: any[] = [];
   filmName: string;
   pageNumber: string;
   viewRequired: number;
@@ -28,7 +28,7 @@ export class FilmListComponent implements OnInit {
     if(filmName) {
       this.filmListService.getFilms(filmName, this.pageNumber)
         .subscribe(
-          (films: Object[]) => {
+          (films: any[]) => {
             if (films && films.length) {
               this.filmList = this.filmList.concat(films);
             }

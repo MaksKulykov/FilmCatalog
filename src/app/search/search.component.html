@@ -2,10 +2,6 @@
   <md-input-container class="example-full-width">
     <input mdInput placeholder="Название фильма" name="filmName" [(ngModel)]="filmName" (keyup.enter)="getNewFilms(); filmName=''">
   </md-input-container>
-  <md-select class="mat-select" placeholder="Вид" [(ngModel)]="view" name="view" (change)="selectNewView()">
-    <md-option [value]="1">Вертикально</md-option>
-    <md-option [value]="2">Горизонтально</md-option>
-  </md-select>
 </form>
 
 
