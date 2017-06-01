@@ -1,4 +1,4 @@
-<search (getFilms)="validateFilmName($event)"></search>
+<search (getFilms)="addFilms($event)"></search>
 <select-view (selectView)="selectView($event)"></select-view>
 <md-grid-list cols="2" [rowHeight]="rowHeightRequired">
   <md-grid-tile *ngFor="let film of filmList">

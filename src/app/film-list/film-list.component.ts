@@ -47,7 +47,7 @@ export class FilmListComponent implements OnInit {
     this.getFilms(this.filmName)
   }
 
-  validateFilmName(filmName: string): void {
+  addFilms(filmName: string): void {
     if (this.filmName === filmName) {
       this.getFilms(this.filmName);
     } else {
