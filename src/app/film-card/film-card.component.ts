@@ -18,7 +18,7 @@ export class FilmCardComponent implements OnInit {
     if(this.filmId) {
       this.filmCardService.getFilmById(this.filmId)
         .subscribe(
-          (filmDetails: Object[]) => {
+          (filmDetails: any[]) => {
             if(filmDetails){
               this.filmDetails = filmDetails;
             }
