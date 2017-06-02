@@ -11,21 +11,26 @@ export class FilmListComponent implements OnInit {
   filmList: any[] = [];
   filmName: string;
   pageNumber: string;
+  viewRequired: number;
+  rowHeightRequired: string;
   constructor(private filmListService: FilmService) { }
 
   ngOnInit() {
     this.filmName = "lord";
     this.pageNumber = "1";
-    this.getFilms();
+    this.viewRequired = 1;
+    this.rowHeightRequired = "1000px";
+    this.selectView(this.viewRequired);
+    this.getFilms(this.filmName);
   }
 
-  private getFilms(): void {
-    if(this.filmName) {
-      this.filmListService.getFilms(this.filmName, this.pageNumber)
+  private getFilms(filmName: string): void {
+    if(filmName) {
+      this.filmListService.getFilms(filmName, this.pageNumber)
         .subscribe(
           (films: any[]) => {
             if (films && films.length) {
-              this.filmList = films;
+              this.filmList = this.filmList.concat(films);
             }
           },
           (error: any) => {
@@ -33,6 +38,35 @@ export class FilmListComponent implements OnInit {
           }
         );
     }
+  }
+
+  getNewFilms(filmName: string): void {
+    this.filmName = filmName;
+    this.pageNumber = "1";
+    this.filmList = [];
+    this.getFilms(this.filmName)
+  }
+
+  addFilms(filmName: string): void {
+    if (this.filmName === filmName) {
+      this.getFilms(this.filmName);
+    } else {
+      this.getNewFilms(filmName);
+    }
+  }
+
+  addMoreFilms(): void {
+    this.pageNumber = String(parseInt(this.pageNumber) + 1);
+    this.getFilms(this.filmName);
+  }
+
+  selectView(view: number): void {
+    this.viewRequired = view;
+    this.setRowHeight(view);
+  }
+
+  setRowHeight(view: number): void {
+    view === 1 ? this.rowHeightRequired = "1000px" : this.rowHeightRequired = "450px";
   }
 }
 

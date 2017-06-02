@@ -10,12 +10,16 @@ import { AppComponent } from './app.component';
 import { FilmListComponent } from './film-list/film-list.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 import { FilmService } from './film.service';
+import { SearchComponent } from './search/search.component';
+import { SelectViewComponent } from './select-view/select-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmListComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    SearchComponent,
+    SelectViewComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ import {FilmService} from '../film.service'
 export class FilmCardComponent implements OnInit {
   @Input()
   filmId: string;
+  @Input()
+  view: number;
   filmDetails: any[] = [];
   constructor(private filmCardService: FilmService) { }
 
