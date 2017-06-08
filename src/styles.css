@@ -6,6 +6,7 @@ body {
   font-family: Roboto, sans-serif;
   height:100%;
   display: flex;
+  justify-content: center;
 }
 .loading {
   height: 100px;
@@ -13,4 +14,8 @@ body {
 }
 .mat-toolbar-row {
   justify-content: space-between;
+}
+#md-spinner {
+  height: 100px;
+  width: 100px;
 }

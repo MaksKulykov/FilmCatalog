@@ -8,6 +8,7 @@ import { FilmService } from '../film.service';
   styleUrls: ['film-list.component.css']
 })
 export class FilmListComponent implements OnInit {
+  isLoading: boolean;
   filmList: any[] = [];
   filmName: string;
   pageNumber: string;
@@ -16,6 +17,7 @@ export class FilmListComponent implements OnInit {
   constructor(private filmListService: FilmService) { }
 
   ngOnInit() {
+    this.isLoading = true;
     this.filmName = "lord";
     this.pageNumber = "1";
     this.viewRequired = 1;
@@ -31,6 +33,7 @@ export class FilmListComponent implements OnInit {
           (films: any[]) => {
             if (films && films.length) {
               this.filmList = this.filmList.concat(films);
+              this.isLoading = false;
             }
           },
           (error: any) => {
@@ -44,7 +47,7 @@ export class FilmListComponent implements OnInit {
     this.filmName = filmName;
     this.pageNumber = "1";
     this.filmList = [];
-    this.getFilms(this.filmName)
+    this.getFilms(this.filmName);
   }
 
   addFilms(filmName: string): void {
@@ -56,6 +59,7 @@ export class FilmListComponent implements OnInit {
   }
 
   addMoreFilms(): void {
+    this.isLoading = true;
     this.pageNumber = String(parseInt(this.pageNumber) + 1);
     this.getFilms(this.filmName);
   }
