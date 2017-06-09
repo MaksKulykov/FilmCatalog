@@ -15,7 +15,7 @@ export class AppComponent {
   ];
 
   constructor(private renderer: Renderer) {
-    this.renderer.listenGlobal('window', 'scroll', (evt) => {this.scrollFunction();} );
+    this.renderer.listenGlobal('window', 'scroll', (event) => {this.scrollFunction();} );
   }
 
   scrollFunction(): void {

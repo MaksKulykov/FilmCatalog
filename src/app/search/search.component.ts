@@ -2,11 +2,13 @@ import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import {FormControl} from "@angular/forms";
+import { MockFilmService } from '../mock-film.service';
 
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  providers: [MockFilmService]
 })
 export class SearchComponent implements OnInit {
   filmName: string;
@@ -14,31 +16,24 @@ export class SearchComponent implements OnInit {
   getFilms = new EventEmitter<string>();
   filmCtrl: FormControl;
   filteredFilms: any;
-  films = [
-    'Matrix',
-    'The Lord of the Rings',
-    'The Man Called Flintstone',
-    'Casper the Friendly Ghost',
-    'Peppa Pig',
-    'Groundhog Day',
-    'The Lake House',
-    'The Terminal',
-    'Miracle on 34th Street',
-    'Harry Potter and the Sorcerer’s Stone',
-    'Harry Potter and the Chamber of Secrets',
-    'Pulp Fiction'
-  ];
+  films: string[] = [];
+
+  constructor(private mockFilmService: MockFilmService) { }
 
   ngOnInit() {
     this.filmCtrl = new FormControl();
-
+    this.getMockFilms();
     this.filteredFilms = this.filmCtrl.valueChanges
       .startWith(null)
-      .map(name => this.filter(name));
+      .map(filmName => this.filter(filmName));
   }
 
-  filter(val: string): string[] {
-    return val ? this.films.filter(option => new RegExp(`^${val}`, 'gi').test(option)): this.films;
+  getMockFilms(): void {
+    this.mockFilmService.getMockFilms().then(films => this.films = films);
+  }
+
+  filter(filmName: string): string[] {
+    return filmName ? this.films.filter(option => new RegExp(`^${filmName}`, 'gi').test(option)): this.films;
   }
 
   getNewFilms(): void {
