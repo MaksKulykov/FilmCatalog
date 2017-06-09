@@ -5,11 +5,6 @@
     <film-card [filmId]="film.imdbID" [view]="viewRequired"></film-card>
   </md-grid-tile>
 </md-grid-list>
-<!--<div>
-  <img id="md-spinner" src="../../assets/images/loading.gif" alt="Loading ..." *ngIf="isLoading">
-</div>-->
 <md-spinner *ngIf="isLoading"></md-spinner>
 <button class="btnAdd" md-button (click)="addMoreFilms()" [style.display]="isLoading ? 'none' : 'block'">Больше фильмов</button>
-
-
 
