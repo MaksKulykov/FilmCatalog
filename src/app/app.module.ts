@@ -12,6 +12,7 @@ import { FilmCardComponent } from './film-card/film-card.component';
 import { FilmService } from './film.service';
 import { SearchComponent } from './search/search.component';
 import { SelectViewComponent } from './select-view/select-view.component';
+import { ScrollDirective } from './scroll-directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SelectViewComponent } from './select-view/select-view.component';
     FilmListComponent,
     FilmCardComponent,
     SearchComponent,
-    SelectViewComponent
+    SelectViewComponent,
+    ScrollDirective
   ],
   imports: [
     BrowserModule,
