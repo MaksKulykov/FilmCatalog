@@ -13,6 +13,7 @@ import { FilmService } from './film.service';
 import { SearchComponent } from './search/search.component';
 import { SelectViewComponent } from './select-view/select-view.component';
 import { ScrollDirective } from './scroll-directive';
+import { GoTopComponent } from './go-top/go-top.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ScrollDirective } from './scroll-directive';
     FilmCardComponent,
     SearchComponent,
     SelectViewComponent,
-    ScrollDirective
+    ScrollDirective,
+    GoTopComponent
   ],
   imports: [
     BrowserModule,
