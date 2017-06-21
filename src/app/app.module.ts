@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdAutocompleteModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
@@ -12,6 +12,8 @@ import { FilmCardComponent } from './film-card/film-card.component';
 import { FilmService } from './film.service';
 import { SearchComponent } from './search/search.component';
 import { SelectViewComponent } from './select-view/select-view.component';
+import { ScrollDirective } from './scroll-directive';
+import { GoTopComponent } from './go-top/go-top.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,17 @@ import { SelectViewComponent } from './select-view/select-view.component';
     FilmListComponent,
     FilmCardComponent,
     SearchComponent,
-    SelectViewComponent
+    SelectViewComponent,
+    ScrollDirective,
+    GoTopComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     MaterialModule,
+    MdAutocompleteModule,
     BrowserAnimationsModule
   ],
   providers: [FilmService],
