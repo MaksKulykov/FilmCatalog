@@ -3,7 +3,7 @@ import { FilmService } from '../film.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'film-list',
+  selector: 'app-film-list',
   templateUrl: 'film-list.component.html',
   styleUrls: ['film-list.component.css']
 })
@@ -18,16 +18,16 @@ export class FilmListComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.filmName = "lord";
-    this.pageNumber = "1";
+    this.filmName = 'lord';
+    this.pageNumber = '1';
     this.viewRequired = 1;
-    this.rowHeightRequired = "1000px";
+    this.rowHeightRequired = '1000px';
     this.selectView(this.viewRequired);
     this.getFilms(this.filmName);
   }
 
   private getFilms(filmName: string): void {
-    if(filmName) {
+    if (filmName) {
       this.filmListService.getFilms(filmName, this.pageNumber)
         .subscribe(
           (films: any[]) => {
@@ -45,7 +45,7 @@ export class FilmListComponent implements OnInit {
 
   getNewFilms(filmName: string): void {
     this.filmName = filmName;
-    this.pageNumber = "1";
+    this.pageNumber = '1';
     this.filmList = [];
     this.getFilms(this.filmName);
   }
@@ -60,7 +60,7 @@ export class FilmListComponent implements OnInit {
 
   addMoreFilms(): void {
     this.isLoading = true;
-    this.pageNumber = String(parseInt(this.pageNumber) + 1);
+    this.pageNumber = String(parseInt(this.pageNumber, 10) + 1);
     this.getFilms(this.filmName);
   }
 
@@ -70,7 +70,7 @@ export class FilmListComponent implements OnInit {
   }
 
   setRowHeight(view: number): void {
-    view === 1 ? this.rowHeightRequired = "1000px" : this.rowHeightRequired = "450px";
+    view === 1 ? this.rowHeightRequired = '1000px' : this.rowHeightRequired = '450px';
   }
 }
 

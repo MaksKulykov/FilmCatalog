@@ -1,8 +1,8 @@
-<search (getFilms)="addFilms($event)"></search>
+<app-search (getFilms)="addFilms($event)"></app-search>
 <select-view (selectView)="selectView($event)"></select-view>
 <md-grid-list cols="2" [rowHeight]="rowHeightRequired" (load)="isLoaded = true;">
   <md-grid-tile *ngFor="let film of filmList">
-    <film-card [filmId]="film.imdbID" [view]="viewRequired"></film-card>
+    <app-film-card [filmId]="film.imdbID" [view]="viewRequired"></app-film-card>
   </md-grid-tile>
 </md-grid-list>
 <md-spinner *ngIf="isLoading"></md-spinner>

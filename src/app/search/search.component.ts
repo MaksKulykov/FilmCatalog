@@ -1,11 +1,11 @@
 import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
-import {FormControl} from "@angular/forms";
+import {FormControl} from '@angular/forms';
 import { MockFilmService } from '../mock-film.service';
 
 @Component({
-  selector: 'search',
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
   providers: [MockFilmService]
@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
   }
 
   filter(filmName: string): string[] {
-    return filmName ? this.films.filter(option => new RegExp(`^${filmName}`, 'gi').test(option)): this.films;
+    return filmName ? this.films.filter(option => new RegExp(`^${filmName}`, 'gi').test(option)) : this.films;
   }
 
   getNewFilms(): void {

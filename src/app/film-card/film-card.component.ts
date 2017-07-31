@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {FilmService} from '../film.service'
+import {FilmService} from '../film.service';
 
 @Component({
-  selector: 'film-card',
+  selector: 'app-film-card',
   templateUrl: './film-card.component.html',
   styleUrls: ['./film-card.component.css']
 })
@@ -15,11 +15,11 @@ export class FilmCardComponent implements OnInit {
   constructor(private filmCardService: FilmService) { }
 
   ngOnInit() {
-    if(this.filmId) {
+    if (this.filmId) {
       this.filmCardService.getFilmById(this.filmId)
         .subscribe(
           (filmDetails: any[]) => {
-            if(filmDetails){
+            if (filmDetails) {
               this.filmDetails = filmDetails;
             }
           },
